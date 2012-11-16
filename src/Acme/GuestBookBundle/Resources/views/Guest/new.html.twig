@@ -1,0 +1,22 @@
+{% extends 'GuestBookBundle::layout.html.twig' %}
+
+{% block body %}
+
+<h1>Guest creation</h1>
+
+<form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+</form>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('guest') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

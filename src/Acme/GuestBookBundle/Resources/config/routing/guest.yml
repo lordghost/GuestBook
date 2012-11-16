@@ -1,0 +1,30 @@
+guest:
+    pattern:  /
+    defaults: { _controller: "GuestBookBundle:Guest:index" }
+
+guest_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "GuestBookBundle:Guest:show" }
+
+guest_new:
+    pattern:  /new
+    defaults: { _controller: "GuestBookBundle:Guest:new" }
+
+guest_create:
+    pattern:  /create
+    defaults: { _controller: "GuestBookBundle:Guest:create" }
+    requirements: { _method: post }
+
+guest_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "GuestBookBundle:Guest:edit" }
+
+guest_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "GuestBookBundle:Guest:update" }
+    requirements: { _method: post }
+
+guest_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "GuestBookBundle:Guest:delete" }
+    requirements: { _method: post }
