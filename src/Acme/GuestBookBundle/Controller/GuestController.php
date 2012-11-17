@@ -4,7 +4,9 @@ namespace Acme\GuestBookBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 use Acme\GuestBookBundle\Entity\Guest;
 use Acme\GuestBookBundle\Form\GuestType;
 
