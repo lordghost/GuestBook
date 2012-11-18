@@ -67,7 +67,7 @@ class GuestController extends Controller
         $entity = new Guest();
         $form   = $this->createForm(new GuestType(), $entity);
 
-        return $this->render('GuestBookBundle:Guest:new.html.twig', array(
+        return $this->render('GuestBookBundle:Guest:index.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -157,31 +157,21 @@ class GuestController extends Controller
      * Deletes a Guest entity.
      *
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction($id)
     {
-        $form = $this->createDeleteForm($id);
-        $form->bind($request);
-
-        if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('GuestBookBundle:Guest')->find($id);
 
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Guest entity.');
-            }
-
             $em->remove($entity);
             $em->flush();
-        }
 
-        return $this->redirect($this->generateUrl('guest'));
+            return $this->redirect($this->generateUrl('guest'));
     }
 
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder(array('id' => $id))
             ->add('id', 'hidden')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

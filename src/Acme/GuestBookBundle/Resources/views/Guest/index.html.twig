@@ -5,7 +5,7 @@
 {% block content %}
 
  <form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_errors(form) }}
+    {{ form_errors(form) }} {{ form_widget(form) }}
 
     {{ form_row(form.name) }}
     {{ form_row(form.email) }}
@@ -14,10 +14,21 @@
 
     <input type="submit" value="Create" />
 </form>
+<hr />
 
     {{ pagerfanta(my_pager,'twitter_bootstrap') }}
 
-<table class="records_list">
+<div>
+    {% for entity in entities %}
+    <span><em>Guest</em></span>{{ entity.name }}<br />
+    <span>Message</span>{{ entity.message [0:99] }}
+
+    <a href="{{ path('guest_show', { 'id': entity.id }) }}">show</a>
+    <a href="{{ path('guest_delete', { 'id': entity.id }) }}">delete</a>
+    {% endfor %}
+</div>
+
+   {#<table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
@@ -38,13 +49,13 @@
                         <a href="{{ path('guest_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('guest_delete', { 'id': entity.id }) }}"onclick="if(confirm('do you realy want delete it?')){return true} else {return false}">delete</a>
+                        <a href="{{ path('guest_delete', { 'id': entity.id }) }}">delete</a>
                     </li>
                 </ul>
             </td>
         </tr>
     {% endfor %}
     </tbody>
-</table>
+</table> #}
 
 {% endblock %}
