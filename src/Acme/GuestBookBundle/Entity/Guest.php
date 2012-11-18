@@ -3,6 +3,7 @@
 namespace Acme\GuestBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Acme\GuestBookBundle\Entity\Guest
@@ -24,6 +25,8 @@ class Guest
     /**
      * @var string $name
      *
+     * @Assert\NotBlank()
+     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,12 +34,18 @@ class Guest
     /**
      * @var string $email
      *
+     * @Assert\NotBlank()
+     * @Assert\Email
+     *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string $message
+     *
+     * @Assert\NotBlank()
+     * @Assert\MinLength(100)
      *
      * @ORM\Column(name="message", type="text")
      */

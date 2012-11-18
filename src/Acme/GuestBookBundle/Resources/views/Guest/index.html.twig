@@ -1,15 +1,27 @@
 {% extends 'GuestBookBundle::layout.html.twig' %}
 
-{% block body %}
+{% block title %} GuestBook | Home {% endblock %}
 
-<h1>Guest list</h1>
+{% block content %}
+
+ <form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.message) }}
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Create" />
+</form>
+
+    {{ pagerfanta(my_pager,'twitter_bootstrap') }}
 
 <table class="records_list">
     <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Email</th>
             <th>Message</th>
             <th>Actions</th>
         </tr>
@@ -19,15 +31,14 @@
         <tr>
             <td><a href="{{ path('guest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.name }}</td>
-            <td>{{ entity.email }}</td>
-            <td>{{ entity.message }}</td>
+            <td>{{ entity.message [0:99] }}</td>
             <td>
                 <ul>
                     <li>
                         <a href="{{ path('guest_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('guest_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('guest_delete', { 'id': entity.id }) }}"onclick="if(confirm('do you realy want delete it?')){return true} else {return false}">delete</a>
                     </li>
                 </ul>
             </td>
@@ -35,13 +46,5 @@
     {% endfor %}
     </tbody>
 </table>
-
-<ul>
-    <li>
-        <a href="{{ path('guest_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
 
 {% endblock %}

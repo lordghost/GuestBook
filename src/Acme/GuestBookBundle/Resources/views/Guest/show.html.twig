@@ -1,4 +1,8 @@
-<h1>Guest</h1>
+{% extends 'GuestBookBundle::layout.html.twig' %}
+
+{% block title %} GuestBook | Show {% endblock %}
+
+{% block content %}
 
 <table class="record_properties">
     <tbody>
@@ -39,3 +43,5 @@
         </form>
     </li>
 </ul>
+
+{% endblock %}

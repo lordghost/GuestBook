@@ -1,3 +1,20 @@
 {% extends '::base.html.twig' %}
 
-{% block title 'GuestBook' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/guestbook/css/bootstrap.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>GuestsBook</h1>
+        <br/>
+        <br/>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="footer">
+
+    </div>
+{% endblock %}

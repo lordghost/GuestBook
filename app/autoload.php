@@ -1,15 +1,6 @@
 <?php
 
-require_once __DIR__.'/../vendor/symfony/symfony/src/Symfony/Component/ClassLoader/UniversalClassLoader.php';
-
-use Symfony\Component\ClassLoader\UniversalClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-
-$loader = new UniversalClassLoader();
-$loader->registerNamespaces(array(
-    'WhiteOctober\PagerfantaBundle' => __DIR__.'/../vendor/bundles',
-    'Pagerfanta'                    => __DIR__.'/../vendor/pagerfanta/src',
-));
 
 $loader = require __DIR__.'/../vendor/autoload.php';
 

@@ -4,7 +4,6 @@ namespace Acme\GuestBookBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Adapter\ArrayAdapter;
 use Pagerfanta\Pagerfanta;
 use Acme\GuestBookBundle\Entity\Guest;
@@ -20,15 +19,22 @@ class GuestController extends Controller
      * Lists all Guest entities.
      *
      */
-    public function indexAction()
+    public function indexAction($page=1)
     {
         $em = $this->getDoctrine()->getManager();
-
         $entities = $em->getRepository('GuestBookBundle:Guest')->findAll();
+        $adapter = new ArrayAdapter(array_reverse($entities));
 
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(10);
+        $pagerfanta->setCurrentPage($page);
+        $entity = new Guest();
+        $form = $this->createForm(new GuestType(), $entity);
         return $this->render('GuestBookBundle:Guest:index.html.twig', array(
-            'entities' => $entities,
-        ));
+            'entities' => $pagerfanta->getCurrentPageResults(),
+            'form' => $form->createView(),
+            'my_pager' => $pagerfanta,
+         ));
     }
 
     /**

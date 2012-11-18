@@ -1,7 +1,7 @@
-_default_import:
-    resource: routing/default.yml
-
 GuestBookBundle_guest:
     resource: "@GuestBookBundle/Resources/config/routing/guest.yml"
     prefix:   /guest
+
+
+
 

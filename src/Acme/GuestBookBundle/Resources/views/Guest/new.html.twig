@@ -1,14 +1,19 @@
 {% extends 'GuestBookBundle::layout.html.twig' %}
 
-{% block body %}
+{% block title %} GuestBook | New Guest {% endblock %}
 
-<h1>Guest creation</h1>
+{% block content %}
 
 <form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
+    {{ form_errors(form) }}
+
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.message) }}
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Create" />
+
 </form>
 
 <ul class="record_actions">
