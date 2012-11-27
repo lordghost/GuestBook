@@ -1,6 +1,6 @@
 GuestBookBundle_guest:
     resource: "@GuestBookBundle/Resources/config/routing/guest.yml"
-    prefix:   /guest
+    prefix:   /
 
 
 

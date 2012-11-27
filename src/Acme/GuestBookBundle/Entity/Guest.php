@@ -25,7 +25,11 @@ class Guest
     /**
      * @var string $name
      *
-     * @Assert\NotBlank()
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Your name cannot contain a number"
+     * )
      *
      * @ORM\Column(name="name", type="string", length=255)
      */
@@ -34,7 +38,6 @@ class Guest
     /**
      * @var string $email
      *
-     * @Assert\NotBlank()
      * @Assert\Email
      *
      * @ORM\Column(name="email", type="string", length=255)

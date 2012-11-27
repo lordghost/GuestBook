@@ -1,0 +1,196 @@
+/*----------------------------------------------------------------------------------*/
+/*------------------------------RESET DEFAULT STYLES--------------------------------*/
+/*----------------------------------------------------------------------------------*/
+html,body                       { width:100%; height:100%; }
+body                            { padding:0; margin:0; font:12px Arial, sans-serif; background:url(../images/background.png) repeat-x; color:#505050; }
+div,p,a,span,em,strong,img,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,td,tr,form,fieldset,label,select,input,textarea {
+	padding:0;
+	margin:0;
+	outline:none;
+	list-style:none;
+}
+select, input, textarea        { font-size:12px; vertical-align:middle; }
+textarea                       { vertical-align:top; }
+:focus                         { outline:none; }
+input[type=submit]             { cursor:pointer; }
+img, fieldset                  { border:0; }
+table                          { border-collapse:collapse; border-spacing:0; }
+a:link, a:visited              { font:12px Tahoma, sans-serif; color:#47BAF7; text-decoration:none; }
+a:hover                        { text-decoration:underline; }
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------DEFAULT CLASSES------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.float-r           	           { float:right !important; }
+.float-l                       { float:left !important; }
+.no-float                      { float:none !important; }
+.no-border                     { border:0 !important; }
+.no-bg                         { background:none !important; }
+.no-margin                     { margin:0 !important; }
+.no-padding                    { padding:0 !important; }
+.no-display                    { display:none !important; }
+.display                       { display:block !important; }
+.inline                        { display:inline !important; }
+.overflow                      { overflow:hidden !important; }
+.align-r                       { text-align:right !important; }
+.align-l                       { text-align:left !important; }
+.align-c                       { text-align:center !important; }
+.clear                         { clear:both; }
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------PAGERFANTA-----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.pagerfanta {
+    margin:0 0 0 300px;
+}
+.pagerfanta a,
+.pagerfanta span {
+    display: inline-block;
+    border: 1px solid #FFF;
+    color: blue;
+    margin-right: .2em;
+    padding: .25em .35em;
+}
+.pagerfanta a,
+.pagerfanta span {
+    float:left;
+    border:1px solid #A7BDC6;
+    color: #47BAF7;
+}
+.pagerfanta a:hover {
+    background: #ccf;
+}
+.pagerfanta .current {
+    background: #ccf;
+}
+.pagerfanta .disabled {
+    border-color: #ccf;
+    color: #ccf;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------WRAPPER--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.wrapper  {
+	overflow:hidden;
+	margin:0 auto;
+	width:780px;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------HEADER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.header {
+    overflow: hidden;
+}
+.header h1 a {
+    float:left;
+    margin:18px 0 30px;
+    font:21px AFKlampenborg;
+    color:#939597;
+    line-height:18px;
+    text-decoration:none;
+}
+.header ul {
+    float:right;
+    margin:10px 0 0;
+    padding:10px 5px;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    background:#FFF;
+}
+.header ul li {
+    float:left;
+    margin:0 0 0 7px;
+}
+.header ul li.guest-name {
+    font:12px AFKlampenborg;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------LOGIN-FORM-----------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.content form.login-form {
+    margin:100px 0 20px 220px;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------REGISTRATION-FORM----------------------------*/
+/*----------------------------------------------------------------------------------*/
+.content form.registration-form {
+    margin:20px 0 20px 80px;
+}
+.content form.registration-form label {
+    float:left;
+    text-align:right;
+    width:150px;
+    font-weight:bold;
+    padding:11px 0 0;
+}
+.content form.registration-form input {
+    overflow:hidden;
+    width:315px;
+    height:10px;
+    margin:0 10px 5px 15px;
+    padding:10px 0 10px 15px;
+    background:#FFF;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #A7BDC6;
+}
+.content form.registration-form textarea {
+    overflow:hidden;
+    width:330px;
+    height:80px;
+    margin:0 0 0 15px;
+    resize:none;
+    background:#FFF;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #A7BDC6;
+}
+.content form.registration-form ul li.submit input
+{
+    overflow:hidden;
+    width:auto;
+    height:10px;
+    margin:5px 0 0 165px;
+    padding:5px 10px 22px 10px;
+    background:#FFF;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #A7BDC6;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------CONTENT--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.content {
+    overflow: hidden;
+    height: 520px;
+}
+.content div.scroll {
+    height: 235px;
+    overflow-y:scroll;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------FOOTER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.footer  {
+    overflow:hidden;
+    border-top:1px solid #C3C4C3;
+    margin:0 0 30px 0;
+    clear:both;
+}
+.footer p  {
+    font-size:10px;
+    color:#77797B;
+    height:23px;
+    background:#D9DADA;
+    border-radius:0 0 17px 17px;
+    -webkit-border-radius:0 0 17px 17px;
+    -moz-border-radius:0 0 17px 17px;
+    margin:0 30px 0 248px;
+    padding:7px 0 0 15px;
+}
+.footer p span  {
+    margin:0 0 0 265px;
+    color:#000000;
+}

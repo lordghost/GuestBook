@@ -1,20 +1,58 @@
-{% extends '::base.html.twig' %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>GuestBook</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/guestbook/css/styles.css')  }}" type="text/css" />
+    {% endblock %}
+</head>
 
-{% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('bundles/guestbook/css/bootstrap.css')  }}" type="text/css" />
-{% endblock %}
-
+<body>
+<div class="wrapper">
 {% block body %}
+
     <div class="header">
-        <h1>GuestBook</h1>
-        <br/>
-        <br/>
+    {% block header %}
+            <h1><a href="{{ path('guest') }}">GuestBook</a></h1>
+            <ul>
+                <li class="guest-name">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {{ app.user.username }}
+                    {% else %}
+                        {{ 'guest' | trans }}
+                    {% endif %}
+                 </li>
+                <li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <a class="label label-info " href="{{ path('fos_user_security_logout') }}">Logout</a>
+                    {% endif %}
+                </li>
+                <li>
+                    <a class="label label-info " href="{{ path('fos_user_security_login') }}">Login</a>
+                </li>
+                <li>
+                    <a class="label label-info " href="{{ path('fos_user_registration_register') }}">Register</a>
+                </li>
+             </ul>
+    {% endblock %}
     </div>
 
+    <div class="content">
     {% block content %}
+
     {% endblock %}
+    </div>
 
     <div class="footer">
-
+    {% block footer %}
+        <p>&copy; Symfony 2 <span>Guestbook made by Oleg Kulik</span></p>
+    {% endblock %}
     </div>
+
 {% endblock %}
+</div>
+
+</body>
+</html>
+

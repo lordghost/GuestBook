@@ -3,59 +3,31 @@
 {% block title %} GuestBook | Home {% endblock %}
 
 {% block content %}
+<form class="registration-form" action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }} {{ form_widget(form) }}
+    <ul>
+        <li>{{ form_row(form.name) }}</li>
+        <li>{{ form_row(form.email) }}</li>
+        <li>{{ form_row(form.message) }}</li>
+        <li>{{ form_rest(form) }}</li>
+        <li class="submit"><input type="submit" value="Create" /></li>
+    </ul>
+ </form>
 
- <form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_errors(form) }} {{ form_widget(form) }}
-
-    {{ form_row(form.name) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.message) }}
-    {{ form_rest(form) }}
-
-    <input type="submit" value="Create" />
-</form>
 <hr />
-
-    {{ pagerfanta(my_pager,'twitter_bootstrap') }}
-
-<div>
+<div class="scroll">
     {% for entity in entities %}
-    <span><em>Guest</em></span>{{ entity.name }}<br />
-    <span>Message</span>{{ entity.message [0:99] }}
-
-    <a href="{{ path('guest_show', { 'id': entity.id }) }}">show</a>
-    <a href="{{ path('guest_delete', { 'id': entity.id }) }}">delete</a>
+    <span><em>guest  </em></span><strong>{{ entity.name }}</strong><br />
+    <span>Message  </span>{{ entity.message [0:99] }}<span>...</span><br />
+    <div>
+        <a href="{{ path('guest_show', { 'id': entity.id }) }}">read</a>
+        <a href="{{ path('guest_delete', { 'id': entity.id }) }}">delete</a><br /><br />
+    </div>
     {% endfor %}
 </div>
 
-   {#<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Message</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('guest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.message [0:99] }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('guest_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('guest_delete', { 'id': entity.id }) }}">delete</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table> #}
+<div class="pagerfanta">
+     {{ pagerfanta(my_pager,'twitter_bootstrap') }}
+</div>
 
 {% endblock %}

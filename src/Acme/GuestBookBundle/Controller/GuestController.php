@@ -88,7 +88,7 @@ class GuestController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('guest_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('guest', array('id' => $entity->getId())));
         }
 
         return $this->render('GuestBookBundle:Guest:new.html.twig', array(
