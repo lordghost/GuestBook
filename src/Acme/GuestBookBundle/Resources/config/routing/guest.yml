@@ -1,14 +1,11 @@
 guest:
-    pattern:  /
-    defaults: { _controller: "GuestBookBundle:Guest:index" }
+    pattern:  /{page}
+    defaults: { _controller: "GuestBookBundle:Guest:index", page: 1 }
+    requirements: { _method: get, page: \d+ }
 
 guest_show:
     pattern:  /{id}/show
     defaults: { _controller: "GuestBookBundle:Guest:show" }
-
-guest_new:
-    pattern:  /new
-    defaults: { _controller: "GuestBookBundle:Guest:new" }
 
 guest_create:
     pattern:  /create

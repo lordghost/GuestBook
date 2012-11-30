@@ -19,22 +19,23 @@ class GuestController extends Controller
      * Lists all Guest entities.
      *
      */
-    public function indexAction($page=1)
+    public function indexAction($page)
     {
         $em = $this->getDoctrine()->getManager();
         $entities = $em->getRepository('GuestBookBundle:Guest')->findAll();
-        $adapter = new ArrayAdapter(array_reverse($entities));
 
+        $adapter = new ArrayAdapter(array_reverse($entities));
         $pagerfanta = new Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(10);
         $pagerfanta->setCurrentPage($page);
+
         $entity = new Guest();
         $form = $this->createForm(new GuestType(), $entity);
+
         return $this->render('GuestBookBundle:Guest:index.html.twig', array(
-            'entities' => $pagerfanta->getCurrentPageResults(),
+            'entities' => $pagerfanta,
             'form' => $form->createView(),
-            'my_pager' => $pagerfanta,
-         ));
+        ));
     }
 
     /**
@@ -55,21 +56,7 @@ class GuestController extends Controller
 
         return $this->render('GuestBookBundle:Guest:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
-    }
-
-    /**
-     * Displays a form to create a new Guest entity.
-     *
-     */
-    public function newAction()
-    {
-        $entity = new Guest();
-        $form   = $this->createForm(new GuestType(), $entity);
-
-        return $this->render('GuestBookBundle:Guest:index.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
+            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -88,11 +75,10 @@ class GuestController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('guest', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('guest'));
         }
 
         return $this->render('GuestBookBundle:Guest:new.html.twig', array(
-            'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
