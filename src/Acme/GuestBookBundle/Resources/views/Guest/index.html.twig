@@ -4,7 +4,7 @@
 
 {% block content %}
 <form class="registration-form" action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
-{{ form_errors(form) }} {{ form_widget(form) }}
+{{ form_errors(form) }}
     <ul>
         <li>{{ form_row(form.name) }}</li>
         <li>{{ form_row(form.email) }}</li>

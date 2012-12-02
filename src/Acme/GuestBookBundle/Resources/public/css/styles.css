@@ -104,12 +104,6 @@ a:hover                        { text-decoration:underline; }
     font:12px AFKlampenborg;
 }
 /*----------------------------------------------------------------------------------*/
-/*-------------------------------------LOGIN-FORM-----------------------------------*/
-/*----------------------------------------------------------------------------------*/
-.content form.login-form {
-    margin:100px 0 20px 220px;
-}
-/*----------------------------------------------------------------------------------*/
 /*-------------------------------------REGISTRATION-FORM----------------------------*/
 /*----------------------------------------------------------------------------------*/
 .content form.registration-form {
@@ -125,9 +119,9 @@ a:hover                        { text-decoration:underline; }
 .content form.registration-form input {
     overflow:hidden;
     width:315px;
-    height:10px;
+    height:30px;
     margin:0 10px 5px 15px;
-    padding:10px 0 10px 15px;
+    padding:0 10px 0;
     background:#FFF;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
@@ -136,9 +130,10 @@ a:hover                        { text-decoration:underline; }
 }
 .content form.registration-form textarea {
     overflow:hidden;
-    width:330px;
+    width:315px;
     height:80px;
     margin:0 0 0 15px;
+    padding:5px 10px;
     resize:none;
     background:#FFF;
     -webkit-border-radius:5px;
@@ -152,6 +147,21 @@ a:hover                        { text-decoration:underline; }
     width:auto;
     height:10px;
     margin:5px 0 0 165px;
+    padding:5px 10px 22px 10px;
+    background:#FFF;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border:1px solid #A7BDC6;
+}
+.content form.registration-form div.checkbox {
+    margin:0 0 0 38px;
+}
+.content form.registration-form input.submit {
+    overflow:hidden;
+    width:auto;
+    height:10px;
+    margin:40px 0 0 110px;
     padding:5px 10px 22px 10px;
     background:#FFF;
     -webkit-border-radius:5px;

@@ -9,16 +9,9 @@ use Pagerfanta\Pagerfanta;
 use Acme\GuestBookBundle\Entity\Guest;
 use Acme\GuestBookBundle\Form\GuestType;
 
-/**
- * Guest controller.
- *
- */
 class GuestController extends Controller
 {
-    /**
-     * Lists all Guest entities.
-     *
-     */
+
     public function indexAction($page)
     {
         $em = $this->getDoctrine()->getManager();
@@ -38,10 +31,6 @@ class GuestController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a Guest entity.
-     *
-     */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -60,10 +49,6 @@ class GuestController extends Controller
         ));
     }
 
-    /**
-     * Creates a new Guest entity.
-     *
-     */
     public function createAction(Request $request)
     {
         $entity  = new Guest();
@@ -83,10 +68,6 @@ class GuestController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing Guest entity.
-     *
-     */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -107,10 +88,6 @@ class GuestController extends Controller
         ));
     }
 
-    /**
-     * Edits an existing Guest entity.
-     *
-     */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -139,10 +116,6 @@ class GuestController extends Controller
         ));
     }
 
-    /**
-     * Deletes a Guest entity.
-     *
-     */
     public function deleteAction($id)
     {
             $em = $this->getDoctrine()->getManager();

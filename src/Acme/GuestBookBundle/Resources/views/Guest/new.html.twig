@@ -4,16 +4,15 @@
 
 {% block content %}
 
-<form action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="registration-form" action="{{ path('guest_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_errors(form) }}
-
-    {{ form_row(form.name) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.message) }}
-    {{ form_rest(form) }}
-
-    <input type="submit" value="Create" />
-
+    <ul>
+        <li>{{ form_row(form.name) }}</li>
+        <li>{{ form_row(form.email) }}</li>
+        <li>{{ form_row(form.message) }}</li>
+        <li>{{ form_rest(form) }}</li>
+        <li class="submit"><input type="submit" value="Create" /></li>
+    </ul>
 </form>
 
 <ul class="record_actions">
